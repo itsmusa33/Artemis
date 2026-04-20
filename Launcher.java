@@ -11,7 +11,7 @@ public class LaunchConfig {
         this.Angle = Angle;
     }
 
-    public double getInitVelocity(){
+    public double getInitialVelocity(){
         return InitVelocity;
     }
     public double getGravity(){
@@ -21,7 +21,7 @@ public class LaunchConfig {
         return Angle;
     }
 
-    public void setInitVelocity( double iv){
+    public void setInitialVelocity( double iv){
         this.InitVelocity = iv;
     }
     public void setGravity( double g){
