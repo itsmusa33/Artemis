@@ -1,10 +1,10 @@
-public class LaunchConfig {
+public class Launcher {
 
   private double InitVelocity;
   private double Gravity;
   private double Angle;
 
-    public LaunchConfig(double InitVelocity, double Gravity, double Angle){
+    public Launcher(double InitVelocity, double Gravity, double Angle){
 
         this.InitVelocity = InitVelocity;
         this.Gravity = Gravity;
