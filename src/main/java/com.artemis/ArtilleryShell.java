@@ -12,7 +12,7 @@ public class ArtilleryShell extends Projectile{
     }
 
     public ArtilleryShell(double mass, double dragCoeff, double area){
-        super(mass, computeBlastRadiusFromMass(mass, BOMB_FACTOR), dragCoeff, area);
+        super(mass, calcBlastRadius(mass, BOMB_FACTOR), dragCoeff, area);
     }
 
     @Override
