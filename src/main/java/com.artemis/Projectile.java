@@ -3,21 +3,26 @@ package com.artemis;
 public abstract class Projectile {
 
     //Physical constants
-    protected final double mass; //mass in kg
-    protected final double blastRadius; //metres
-    protected final double dragCoeff; // dimensionless Cd
-    protected final double area; //m²
+    private final double mass; //mass in kg
+    private final double blastRadius; //metres
+    private final double dragCoeff; // dimensionless Cd
+    private final double area; //m²
 
     //Runtime state (updated by PhysicsEngine every tick)
-    protected double x, y; //position (metres)
-    protected double vx, vy; //velocity(m/s)
-    protected boolean hasLanded = false;
+    private double x, y; //position (metres)
+    private double vx, vy; //velocity(m/s)
+    private boolean hasLanded = false;
 
     public Projectile(double mass, double blastRadius, double dragCoeff, double area) {
         this.mass = mass;
         this.blastRadius = blastRadius;
         this.dragCoeff = dragCoeff;
         this.area = area;
+    }
+    public double calcBlastRadius(double mass, double explosiveFactor){
+        double normalizedMass = Math.max(0.1, mass);
+        double normalizedFactor = Math.max(0.1, explosiveFactor);
+        return 2.5 * Math.cbrt(normalizedMass) * normalizedFactor;
     }
 
     //Called by PhysicsEngine on ground contact.
