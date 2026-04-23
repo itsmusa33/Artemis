@@ -60,3 +60,14 @@ public class Cannon extends Artillery {
         return "Long range, high velocity. Precise but narrow blast zone.";
     }
 }
+
+public classs Self_propelled extends Artillery{
+    public Self_propelled(){
+        super("Self_propelled Artillery",160.0,10.0,150.0,30.0);
+
+        @Override
+            public String getDescription(){
+                return "Quick, effective. Long range with high damage");
+        }
+    }
+
