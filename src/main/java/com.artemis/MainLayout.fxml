@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="root" style="-fx-background-color:#0a1520;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+
+    <ScrollPane fx:id="sidebarScroll" fitToWidth="true" hbarPolicy="NEVER" minWidth="340" prefWidth="340" style="-fx-background:#0d1b2a;-fx-background-color:#0d1b2a;-fx-border-color:transparent;">
+        <VBox fx:id="sidebar" minWidth="340" prefWidth="340" spacing="0" style="-fx-background-color:#0d1b2a;">
+
+            <VBox spacing="5" style="-fx-background-color:#0d1b2a;">
+                <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
+                <Label style="-fx-font-size:13px;-fx-font-weight:bold;-fx-text-fill:#c8dff0;-fx-font-family:Monospace;" text="Launch Control">
+                    <font><Font name="Arial Black" size="13.600000381469727" /></font>
+                </Label>
+                <VBox spacing="3">
+                    <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#88aacc;" text="Angle" />
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Slider fx:id="angle_slider" max="89" min="1" prefHeight="16.0" prefWidth="254.0" style="-fx-accent:#4db8ff;" value="45" />
+                        <Label fx:id="angle_value_label" style="-fx-font-size:12px;-fx-font-family:Monospace;-fx-text-fill:#e0f0ff;" text="45°">
+                            <font><Font name="Arial Bold" size="13.600000381469727" /></font>
+                        </Label>
+                    </HBox>
+                </VBox>
+                <VBox spacing="3">
+                    <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#88aacc;" text="Initial Velocity" />
+                    <Label fx:id="velocity_value_label" style="-fx-font-size:12px;-fx-font-family:Monospace;-fx-text-fill:#e0f0ff;" text="35 m/s" />
+                </VBox>
+            </VBox>
+
+            <Region prefHeight="1" style="-fx-background-color:#1a3050;" />
+
+            <VBox spacing="5" style="-fx-background-color:#0d1b2a;">
+                <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
+                <Label contentDisplay="CENTER" prefHeight="16.0" prefWidth="315.0" style="-fx-font-size:13px;-fx-font-weight:bold;-fx-text-fill:#c8dff0;-fx-font-family:Monospace;" text="             Weapon Selection" textAlignment="CENTER" />
+                <VBox spacing="3">
+                    <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#88aacc;" text="Weapon" />
+                    <Label fx:id="weapon_name_label" style="-fx-font-size:11px;-fx-font-family:Monospace;-fx-text-fill:#e0f0ff;" text="Mortar" />
+                </VBox>
+                <HBox alignment="CENTER_LEFT" spacing="4">
+                    <Button fx:id="mortarBtn" onAction="#onMortarBtn" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color:#1a3050;-fx-text-fill:#e0f0ff;-fx-font-size:11px;-fx-padding:5 10;-fx-cursor:hand;-fx-background-radius:4;" text="Mortar" />
+                    <Button fx:id="fieldGunBtn" onAction="#onFieldGunBtn" prefHeight="26.0" prefWidth="101.0" style="-fx-background-color:#1a3050;-fx-text-fill:#e0f0ff;-fx-font-size:11px;-fx-padding:5 10;-fx-cursor:hand;-fx-background-radius:4;" text="Field Gun" />
+                    <Button fx:id="missileBtn" onAction="#onMissileBtn" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color:#1a3050;-fx-text-fill:#e0f0ff;-fx-font-size:11px;-fx-padding:5 10;-fx-cursor:hand;-fx-background-radius:4;" text="Missile" />
+                </HBox>
+                <Button fx:id="custom_weapon_button" maxWidth="Infinity" onAction="#onCustomWeaponBtn" prefHeight="15" prefWidth="100" style="-fx-background-color:#1a3050;-fx-text-fill:#e0f0ff;-fx-font-size:11px;-fx-padding:5 10;-fx-cursor:hand;-fx-background-radius:4;" text="Custom Weapon" />
+                <VBox fx:id="custom_velocity_box" managed="false" spacing="5" visible="false">
+                    <VBox spacing="3">
+                        <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#88aacc;" text="Custom Velocity" />
+                        <HBox alignment="CENTER_LEFT" spacing="8">
+                            <Slider fx:id="custom_velocity_slider" max="150" min="10" prefWidth="220" style="-fx-accent:#e0f0ff;" value="50" />
+                            <Label fx:id="custom_velocity_label" style="-fx-font-size:11px;-fx-font-family:Monospace;-fx-text-fill:#e0f0ff;" text="50 m/s" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+
+            <Region prefHeight="1" style="-fx-background-color:#1a3050;" />
+
+            <VBox spacing="5" style="-fx-background-color:#0d1b2a;">
+                <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
+                <Label prefHeight="16.0" prefWidth="263.0" style="-fx-font-size:13px;-fx-font-weight:bold;-fx-text-fill:#c8dff0;-fx-font-family:Monospace;" text="              Munition Type">
+                    <font><Font size="15.0" /></font>
+                </Label>
+                <VBox spacing="3">
+                    <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#88aacc;" text="Loaded" />
+                    <Label fx:id="ammo_loaded_label" style="-fx-font-size:11px;-fx-font-family:Monospace;-fx-text-fill:#e0f0ff;" text="Default" />
+                </VBox>
+                <HBox alignment="CENTER_LEFT" spacing="4">
+                    <Button onAction="#onShell50"  prefHeight="26.0" prefWidth="86.0" style="-fx-background-color:#1a3050;-fx-text-fill:#e0f0ff;-fx-font-size:11px;-fx-padding:5 10;-fx-cursor:hand;-fx-background-radius:4;" text="50mm" />
+                    <Button onAction="#onShell100" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color:#1a3050;-fx-text-fill:#e0f0ff;-fx-font-size:11px;-fx-padding:5 10;-fx-cursor:hand;-fx-background-radius:4;" text="100mm" />
+                    <Button onAction="#onShell150" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color:#1a3050;-fx-text-fill:#e0f0ff;-fx-font-size:11px;-fx-padding:5 10;-fx-cursor:hand;-fx-background-radius:4;" text="150mm" />
+                </HBox>
+            </VBox>
+
+            <Region prefHeight="1" style="-fx-background-color:#1a3050;" />
+
+            <VBox spacing="5" style="-fx-background-color:#0d1b2a;">
+                <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
+                <Label prefHeight="16.0" prefWidth="312.0" style="-fx-font-size:13px;-fx-font-weight:bold;-fx-text-fill:#c8dff0;-fx-font-family:Monospace;" text="               Environment" />
+                <VBox spacing="3">
+                    <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#88aacc;" text="Gravity (m/s²)" />
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Slider fx:id="gravity_slider" majorTickUnit="6.0" max="25.0" min="1.0" minorTickCount="5" prefWidth="220" showTickLabels="true" showTickMarks="true" style="-fx-accent:#ffdd66;" value="9.81" />
+                        <Label fx:id="gravity_value_label" style="-fx-font-size:11px;-fx-font-family:Monospace;-fx-text-fill:#ffdd66;" text="9.8 m/s²" />
+                    </HBox>
+                </VBox>
+                <HBox alignment="CENTER_LEFT" spacing="6">
+                    <Button onAction="#onEarthPreset" style="-fx-background-color:#0d2a3a;-fx-text-fill:#88aacc;-fx-font-size:11px;-fx-padding:4 8;-fx-cursor:hand;-fx-background-radius:4;-fx-border-color:#1a3050;-fx-border-width:1;-fx-border-radius:4;" text="Earth 9.8" />
+                    <Button onAction="#onMoonPreset"  style="-fx-background-color:#0d2a3a;-fx-text-fill:#88aacc;-fx-font-size:11px;-fx-padding:4 8;-fx-cursor:hand;-fx-background-radius:4;-fx-border-color:#1a3050;-fx-border-width:1;-fx-border-radius:4;" text="Moon  1.6" />
+                </HBox>
+                <VBox spacing="3">
+                    <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#88aacc;" text="Wind (m/s)" />
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Slider fx:id="wind_slider" majorTickUnit="10" max="20" min="-20" minorTickCount="4" prefWidth="220" showTickLabels="true" showTickMarks="true" style="-fx-accent:#66ffaa;" value="0" />
+                        <Label fx:id="wind_value_label" style="-fx-font-size:11px;-fx-font-family:Monospace;-fx-text-fill:#66ffaa;" text="0.0 m/s" />
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <Region prefHeight="1" style="-fx-background-color:#1a3050;" />
+
+            <VBox spacing="5" style="-fx-background-color:#0d1b2a;">
+                <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
+                <Button fx:id="trajectory_toggle_button" maxWidth="Infinity" onAction="#onTrajectoryToggle" style="-fx-background-color:#0f3d2e;-fx-text-fill:#66ffaa;-fx-font-size:14px;-fx-padding:8 14;-fx-cursor:hand;-fx-background-radius:4;-fx-border-color:#66ffaa;-fx-border-width:1;-fx-border-radius:4;" text="  Trajectory ON" />
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+
+    <VBox spacing="0" HBox.hgrow="ALWAYS">
+
+        <HBox fx:id="simToolbar" alignment="CENTER_LEFT" spacing="5"
+              style="-fx-background-color:#0d1b2a;-fx-border-color:#1a3050;-fx-border-width:0 0 1 0;">
+            <padding><Insets bottom="10" left="14" right="14" top="10" /></padding>
+            <Label style="-fx-font-size:13px;-fx-font-weight:bold;-fx-text-fill:#4a7090;-fx-font-family:Monospace;-fx-padding:0 6 0 2;" text="SIMULATION" />
+            <Button fx:id="sim_mode_button" onAction="#onSimModeToggle"
+                    style="-fx-background-color:#1a1a2e;-fx-text-fill:#4a7090;-fx-font-size:14px;-fx-padding:8 14;-fx-cursor:hand;-fx-background-radius:4;-fx-border-color:#1a3050;-fx-border-width:1;-fx-border-radius:4;"
+                    text="  Sim Mode" />
+            <Region prefHeight="36" prefWidth="1" style="-fx-background-color:#1a3050;" />
+            <Label style="-fx-font-size:10px;-fx-text-fill:#4a7090;-fx-font-family:Monospace;-fx-padding:0 2;" text="PRACTICE" />
+            <Button fx:id="place_targets_button" disable="true" onAction="#onPlaceTargets"
+                    style="-fx-background-color:#111122;-fx-text-fill:#283040;-fx-font-size:14px;-fx-padding:8 14;-fx-cursor:default;-fx-background-radius:4;-fx-border-color:#1a2030;-fx-border-width:1;-fx-border-radius:4;"
+                    text="  Place Targets" />
+            <Region prefHeight="36" prefWidth="1" style="-fx-background-color:#1a3050;" />
+            <Label style="-fx-font-size:10px;-fx-text-fill:#4a7090;-fx-font-family:Monospace;-fx-padding:0 2;" text="CHALLENGES" />
+            <Button fx:id="challenge_static_button" disable="true" onAction="#onChallengeStatic"
+                    style="-fx-background-color:#111122;-fx-text-fill:#283040;-fx-font-size:14px;-fx-padding:8 14;-fx-cursor:default;-fx-background-radius:4;-fx-border-color:#1a2030;-fx-border-width:1;-fx-border-radius:4;"
+                    text="  Static Targets" />
+            <Button fx:id="challenge_moving_button" disable="true" onAction="#onChallengeMoving"
+                    style="-fx-background-color:#111122;-fx-text-fill:#283040;-fx-font-size:14px;-fx-padding:8 14;-fx-cursor:default;-fx-background-radius:4;-fx-border-color:#1a2030;-fx-border-width:1;-fx-border-radius:4;"
+                    text="  Moving Targets" />
+            <Region prefHeight="36" prefWidth="1" style="-fx-background-color:#1a3050;" />
+            <Label style="-fx-font-size:10px;-fx-text-fill:#4a7090;-fx-font-family:Monospace;-fx-padding:0 2;" text="TOOLS" />
+            <Button fx:id="auto_aim_button" disable="true" onAction="#onAutoAim"
+                    style="-fx-background-color:#111122;-fx-text-fill:#283040;-fx-font-size:14px;-fx-padding:8 14;-fx-cursor:default;-fx-background-radius:4;-fx-border-color:#1a2030;-fx-border-width:1;-fx-border-radius:4;"
+                    text="  Auto-Aim" />
+            <Button fx:id="clear_targets_button" disable="true" onAction="#onClearTargets"
+                    style="-fx-background-color:#111122;-fx-text-fill:#283040;-fx-font-size:14px;-fx-padding:8 14;-fx-cursor:default;-fx-background-radius:4;-fx-border-color:#1a2030;-fx-border-width:1;-fx-border-radius:4;"
+                    text="  Clear Targets" />
+            <Button fx:id="clear_craters_button" disable="true" onAction="#onClearCraters"
+                    style="-fx-background-color:#111122;-fx-text-fill:#283040;-fx-font-size:14px;-fx-padding:8 14;-fx-cursor:default;-fx-background-radius:4;-fx-border-color:#1a2030;-fx-border-width:1;-fx-border-radius:4;"
+                    text="  Clear Craters" />
+        </HBox>
+
+        <StackPane fx:id="canvas_pane" style="-fx-background-color:#0a1520;" VBox.vgrow="ALWAYS" />
+
+        <HBox fx:id="statsBar" alignment="CENTER_LEFT" prefHeight="95" spacing="0"
+              style="-fx-background-color:#0d1b2a;-fx-border-color:#1a3050;-fx-border-width:1 0 0 0;">
+            <VBox alignment="CENTER" spacing="4"
+                  style="-fx-border-color:#1a3050;-fx-border-width:0 1 0 0;" HBox.hgrow="ALWAYS">
+                <padding><Insets bottom="14" left="16" right="16" top="14" /></padding>
+                <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#4a7090;" text="RANGE" />
+                <Label fx:id="range_stat_label" style="-fx-font-size:22px;-fx-font-family:Monospace;-fx-text-fill:#66ffaa;" text="-- m" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="4"
+                  style="-fx-border-color:#1a3050;-fx-border-width:0 1 0 0;" HBox.hgrow="ALWAYS">
+                <padding><Insets bottom="14" left="16" right="16" top="14" /></padding>
+                <Label fx:id="height_box_title_label" style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#4a7090;" text="MAX HEIGHT" />
+                <Label fx:id="height_stat_label" style="-fx-font-size:22px;-fx-font-family:Monospace;-fx-text-fill:#ffdd66;" text="-- m" />
+            </VBox>
+            <VBox alignment="CENTER" spacing="4"
+                  style="-fx-border-color:#1a3050;-fx-border-width:0 1 0 0;" HBox.hgrow="ALWAYS">
+                <padding><Insets bottom="14" left="16" right="16" top="14" /></padding>
+                <Label style="-fx-font-size:10px;-fx-font-family:Monospace;-fx-text-fill:#4a7090;" text="FLIGHT TIME" />
+                <Label fx:id="time_stat_label" style="-fx-font-size:22px;-fx-font-family:Monospace;-fx-text-fill:#ff9966;" text="-- s" />
+            </VBox>
+            <Button fx:id="launch_button" onAction="#onLaunch" prefHeight="75" prefWidth="190"
+                    style="-fx-background-color:#4db8ff;-fx-text-fill:#0a1520;-fx-font-size:18px;-fx-font-weight:bold;-fx-cursor:hand;-fx-background-radius:6;"
+                    text="  LAUNCH">
+                <HBox.margin><Insets left="16" right="16" /></HBox.margin>
+            </Button>
+        </HBox>
+
+    </VBox>
+
+</HBox>
