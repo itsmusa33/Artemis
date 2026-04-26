@@ -1,30 +1,38 @@
-package com.artemis;
-//making a test class
-public class Main{
-  public static void main(String[] args){
-    System.out.println("Artemis is alive.");
-        PhysicsEngine physicsEngine = new PhysicsEngine();
-        Launcher launcher = new Launcher(0, 0, 45, 100);
-        Projectile projectile = new Projectile(10, 5, 0.47, 0.01) {
-            @Override
-            public void onImpact(){
-                System.out.println("Impact! Blast radius: " + blastRadius + " metres");
-            }
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-            @Override
-            public String getDisplayName(){
-                return "Standard Shell";
-            }
-        };
-        projectile.setPosition(launcher.getPositionX(), launcher.getPositionY());
-        projectile.setVelocity(
-                launcher.getInitialVelocity() * Math.cos(Math.toRadians(launcher.getAngle())),
-                launcher.getInitialVelocity() * Math.sin(Math.toRadians(launcher.getAngle())));
-        while (!projectile.hasLanded()) {
-            System.out.printf("Projectile at (%.2f, %.2f) with velocity (%.2f, %.2f)%n",
-                    projectile.getX(), projectile.getY(), projectile.getVx(), projectile.getVy());
-            physicsEngine.update(projectile, 0.1);
-        }
-        System.out.printf("Final position: (%.2f, %.2f)%n", projectile.getX(), projectile.getY());
-  }
+public class Main extends Application{
+
+    @Override
+    public void start(Stage stage) throws Exception{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MainLayout.fxml"));
+        Parent root = loader.load();
+
+        MainController controller = loader.getController();
+
+        Scene scene = new Scene(root, 1220, 780);
+
+        stage.setTitle("Artillery Simulator - Artemis");
+        stage.setScene(scene);
+        stage.setResizable(true);
+        stage.setMaximized(true);
+        stage.setFullScreenExitHint("");
+
+        scene.setOnKeyPressed(ke -> {
+            if (ke.getCode() == javafx.scene.input.KeyCode.F11)
+                stage.setFullScreen(!stage.isFullScreen());
+        });
+
+        stage.show();
+        Platform.runLater(controller::init_canvas);
+    }
+
+    public static void main(String[] args){
+        launch(args);
+    }
 }
